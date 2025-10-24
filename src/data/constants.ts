@@ -1,45 +1,48 @@
 // thoda zada ts ho gya idhar
 export enum SkillNames {
   AWS = "aws",
-  // AZURE = "azure",    // +
+  AZURE = "azure",
   LINUX = "linux",    
-  // SHELL = "shell",    // +
-  // PYTHON = "python",  // +
+  SHELL = "shell",
+  PYTHON = "python",
   GIT = "git",
   DOCKER = "docker",
-  // SELENIUM = "selenium",  // +
-  // JENKINS = "jenkins",    // +
-  // KUBERNETES = "kubernetes",  // +
-  // ANSIBLE = "ansible",    // +
-  // TERRAFORM = "terraform",  // +
-  // PROMETHEUS = "prometheus",  // +
-  // GRAFANA = "grafana",    // +
-  // SONARQUBE = "sonarqube",  // +
-  // OWASP = "owasp",    // +
-  // TRIVY = "trivy",    // +
-  // MAVEN = "maven",    // +
-  // GO = "go",        // +
+  SELENIUM = "selenium",
+  JENKINS = "jenkins",
+  KUBERNETES = "kubernetes",
+  ANSIBLE = "ansible",
+  TERRAFORM = "terraform",
+  PROMETHEUS = "prometheus",
+  GRAFANA = "grafana",
+  SONARQUBE = "sonarqube",
+  OWASP = "owasp",
+  TRIVY = "trivy",
+  MAVEN = "maven",
+  GO = "go",
   HTML = "html",
   CSS = "css",
   JS = "js",
-  // JAVA = "java",    // +
+  JAVA = "java",
   POSTGRES = "postgres",
-  TS = "ts",         //
-  REACT = "react",   //
-  VUE = "vue",       //
-  NEXTJS = "nextjs", //
-  TAILWIND = "tailwind",  //
-  NODEJS = "nodejs",  //
-  EXPRESS = "express",  // 
-  MONGODB = "mongodb",  //
-  GITHUB = "github",   //
-  PRETTIER = "prettier",  //
-  NPM = "npm",       //
-  FIREBASE = "firebase",  //
-  WORDPRESS = "wordpress",  //
-  NGINX = "nginx",      //
-  VIM = "vim",           //
-  VERCEL = "vercel",    //
+  TS = "ts",
+  REACT = "react",
+  VUE = "vue",
+  NEXTJS = "nextjs",
+  TAILWIND = "tailwind",
+  NODEJS = "nodejs",
+  EXPRESS = "express",
+  MONGODB = "mongodb",
+  GITHUB = "github",
+  PRETTIER = "prettier",
+  NPM = "npm",
+  FIREBASE = "firebase",
+  WORDPRESS = "wordpress",
+  NGINX = "nginx",
+  VIM = "vim",
+  VERCEL = "vercel",
+  REDIS = "redis",
+  SUPABASE = "supabase",
+  OPENAI = "openai",
 }
 export type Skill = {
   id: number;
@@ -248,6 +251,158 @@ using use = useUsing("use")`,
       "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+  },
+  [SkillNames.AZURE]: {
+    id: 25,
+    name: "azure",
+    label: "Azure",
+    shortDescription: "Microsoft's cloud flex, but make it enterprise! ☁️💼",
+    color: "#0078d4",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+  },
+  [SkillNames.SHELL]: {
+    id: 26,
+    name: "shell",
+    label: "Shell Scripting",
+    shortDescription: "Automating life one script at a time, no cap! 🐚⚡",
+    color: "#89e051",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
+  },
+  [SkillNames.PYTHON]: {
+    id: 27,
+    name: "python",
+    label: "Python",
+    shortDescription: "Snake language that's actually fire, no cap! 🐍🔥",
+    color: "#3776ab",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  [SkillNames.SELENIUM]: {
+    id: 28,
+    name: "selenium",
+    label: "Selenium",
+    shortDescription: "Browser automation hitting different, respectfully! 🤖🌐",
+    color: "#43b02a",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg",
+  },
+  [SkillNames.JENKINS]: {
+    id: 29,
+    name: "jenkins",
+    label: "Jenkins",
+    shortDescription: "CI/CD pipeline but make it orange and reliable! 🟠🔧",
+    color: "#d24939",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
+  },
+  [SkillNames.KUBERNETES]: {
+    id: 30,
+    name: "kubernetes",
+    label: "Kubernetes",
+    shortDescription: "Container orchestration on another level, period! ⚓🚢",
+    color: "#326ce5",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+  },
+  [SkillNames.ANSIBLE]: {
+    id: 31,
+    name: "ansible",
+    label: "Ansible",
+    shortDescription: "Infrastructure as code but make it simple, no cap! 🔧📜",
+    color: "#ee0000",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg",
+  },
+  [SkillNames.TERRAFORM]: {
+    id: 32,
+    name: "terraform",
+    label: "Terraform",
+    shortDescription: "Building cloud infra like playing with Legos! 🧱☁️",
+    color: "#7b42bc",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
+  },
+  [SkillNames.PROMETHEUS]: {
+    id: 33,
+    name: "prometheus",
+    label: "Prometheus",
+    shortDescription: "Monitoring your systems like a digital stalker! 📊👀",
+    color: "#e6522c",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg",
+  },
+  [SkillNames.GRAFANA]: {
+    id: 34,
+    name: "grafana",
+    label: "Grafana",
+    shortDescription: "Making metrics look pretty, no cap! 📈✨",
+    color: "#f46800",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
+  },
+  [SkillNames.SONARQUBE]: {
+    id: 35,
+    name: "sonarqube",
+    label: "SonarQube",
+    shortDescription: "Code quality police but make it helpful! 🐠🔍",
+    color: "#4e9bcd",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg",
+  },
+  [SkillNames.OWASP]: {
+    id: 36,
+    name: "owasp",
+    label: "OWASP",
+    shortDescription: "Security checklist for keeping hackers out! 🛡️🔒",
+    color: "#000000",
+    icon: "/assets/icons/owasp-svgrepo-com.svg",
+  },
+  [SkillNames.TRIVY]: {
+    id: 37,
+    name: "trivy",
+    label: "Trivy",
+    shortDescription: "Vulnerability scanner hitting different! 🔍🚨",
+    color: "#1904da",
+    icon: "https://raw.githubusercontent.com/aquasecurity/trivy/main/docs/imgs/trivy-logo.png",
+  },
+  [SkillNames.MAVEN]: {
+    id: 38,
+    name: "maven",
+    label: "Maven",
+    shortDescription: "Java build tool that's actually organized! 📦☕",
+    color: "#c71a36",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg",
+  },
+  [SkillNames.GO]: {
+    id: 39,
+    name: "go",
+    label: "Go",
+    shortDescription: "Fast, simple, and powerful - the perfect combo! 🏃‍♂️💨",
+    color: "#00add8",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+  },
+  [SkillNames.JAVA]: {
+    id: 40,
+    name: "java",
+    label: "Java",
+    shortDescription: "Enterprise-grade coffee-powered programming! ☕🏢",
+    color: "#f89820",
+    icon: "/assets/icons/icons8-java.svg",
+  },
+  [SkillNames.REDIS]: {
+    id: 41,
+    name: "redis",
+    label: "Redis",
+    shortDescription: "In-memory database that's lightning fast! ⚡🔴",
+    color: "#dc382d",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+  },
+  [SkillNames.SUPABASE]: {
+    id: 42,
+    name: "supabase",
+    label: "Supabase",
+    shortDescription: "Firebase but make it open source and better! 🔥💚",
+    color: "#3ecf8e",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  },
+  [SkillNames.OPENAI]: {
+    id: 43,
+    name: "openai",
+    label: "OpenAI",
+    shortDescription: "AI that's actually smart, no cap! 🤖🧠",
+    color: "#412991",
+    icon: "/assets/icons/openai-svgrepo-com.svg",
   },
 };
 
