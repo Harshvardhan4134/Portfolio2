@@ -207,11 +207,11 @@ export default function RadialOrbitalTimeline({
                     isPulsing ? "animate-pulse duration-1000" : ""
                   }`}
                   style={{
-                    background: `radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)`,
-                    width: `${item.energy * 0.5 + 40}px`,
-                    height: `${item.energy * 0.5 + 40}px`,
-                    left: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
-                    top: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
+                    background: `radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%)`,
+                    width: `${item.energy * 0.3 + 40}px`,
+                    height: `${item.energy * 0.3 + 40}px`,
+                    left: `-${(item.energy * 0.3 + 40 - 40) / 2}px`,
+                    top: `-${(item.energy * 0.3 + 40 - 40) / 2}px`,
                   }}
                 ></div>
 
@@ -233,7 +233,7 @@ export default function RadialOrbitalTimeline({
                       ? "border-white animate-pulse"
                       : "border-white/40"
                   }
-                  transition-all duration-300 transform
+                  transition-all duration-300 transform hover:scale-110 hover:bg-white/20
                   ${isExpanded ? "scale-150" : ""}
                 `}
                 >

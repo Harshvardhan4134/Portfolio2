@@ -87,14 +87,33 @@ const skillIconMap: Record<string, React.ElementType> = {
   "redis": Database,
   "supabase": Database,
   "openai": Cpu,
+  // Additional skills
+  "sql": Database,
+  "c": Code,
+  "powerbi": BarChart3,
+  "excel": FileText,
 };
 
-// Convert skills data to timeline format
+// Convert skills data to timeline format - only specified skills
 const convertSkillsToTimeline = () => {
-  return Object.values(SKILLS).map((skill, index) => {
+  // Only include these specific skills
+  const allowedSkills = ["python", "postgres", "git", "react", "firebase", "supabase"];
+  
+  // Add skills that might not be in the main SKILLS object
+  const additionalSkills = [
+    { id: 100, name: "sql", label: "SQL", shortDescription: "Structured Query Language for databases", color: "#336791" },
+    { id: 101, name: "c", label: "C", shortDescription: "The mother of all programming languages", color: "#00599C" },
+    { id: 102, name: "powerbi", label: "Power BI", shortDescription: "Business intelligence and data visualization", color: "#F2C811" },
+    { id: 103, name: "excel", label: "Excel", shortDescription: "Spreadsheet mastery for data analysis", color: "#217346" }
+  ];
+
+  const filteredSkills = Object.values(SKILLS).filter(skill => allowedSkills.includes(skill.name));
+  const allSkills = [...filteredSkills, ...additionalSkills];
+
+  return allSkills.map((skill, index) => {
     // Determine status based on skill proficiency
-    const expertSkills = ["js", "ts", "react", "nextjs", "tailwind", "nodejs", "git", "github", "vercel"];
-    const intermediateSkills = ["html", "css", "vue", "express", "postgres", "mongodb", "prettier", "npm", "firebase", "wordpress", "linux", "docker", "nginx", "aws", "vim"];
+    const expertSkills = ["react", "git", "python"];
+    const intermediateSkills = ["postgres", "firebase", "supabase", "sql", "c", "powerbi", "excel"];
     
     let status: "completed" | "in-progress" | "pending";
     let energy: number;
@@ -114,7 +133,7 @@ const convertSkillsToTimeline = () => {
     const relatedIds: number[] = [];
     const currentCategory = getSkillCategory(skill.name);
     
-    Object.values(SKILLS).forEach((otherSkill) => {
+    allSkills.forEach((otherSkill) => {
       if (otherSkill.id !== skill.id && getSkillCategory(otherSkill.name) === currentCategory) {
         relatedIds.push(otherSkill.id);
       }
@@ -137,8 +156,8 @@ const convertSkillsToTimeline = () => {
 // Categorize skills
 const getSkillCategory = (skillName: string): string => {
   const frontend = ["js", "ts", "html", "css", "react", "vue", "nextjs", "tailwind"];
-  const backend = ["nodejs", "express", "python", "go", "java"];
-  const database = ["postgres", "mongodb", "redis", "supabase"];
+  const backend = ["nodejs", "express", "python", "go", "java", "c"];
+  const database = ["postgres", "mongodb", "redis", "supabase", "sql"];
   const devops = ["docker", "kubernetes", "jenkins", "ansible", "terraform", "nginx"];
   const cloud = ["aws", "azure", "vercel", "firebase"];
   const tools = ["git", "github", "npm", "prettier", "vim", "linux", "shell"];
@@ -146,6 +165,7 @@ const getSkillCategory = (skillName: string): string => {
   const security = ["owasp", "trivy"];
   const testing = ["selenium"];
   const ai = ["openai"];
+  const analytics = ["powerbi", "excel"];
 
   if (frontend.includes(skillName)) return "Frontend";
   if (backend.includes(skillName)) return "Backend";
@@ -157,6 +177,7 @@ const getSkillCategory = (skillName: string): string => {
   if (security.includes(skillName)) return "Security";
   if (testing.includes(skillName)) return "Testing";
   if (ai.includes(skillName)) return "AI/ML";
+  if (analytics.includes(skillName)) return "Analytics";
   
   return "Other";
 };
