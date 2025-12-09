@@ -92,19 +92,20 @@ const skillIconMap: Record<string, React.ElementType> = {
   "c": Code,
   "powerbi": BarChart3,
   "excel": FileText,
+  "word_pullup_animation": FileText,
 };
 
 // Convert skills data to timeline format - only specified skills
 const convertSkillsToTimeline = () => {
   // Only include these specific skills
-  const allowedSkills = ["python", "postgres", "git", "react", "firebase", "supabase"];
+  const allowedSkills = ["python", "postgres", "git", "react", "firebase", "supabase", "ts"];
   
   // Add skills that might not be in the main SKILLS object
   const additionalSkills = [
-    { id: 100, name: "sql", label: "SQL", shortDescription: "Structured Query Language for databases", color: "#336791" },
-    { id: 101, name: "c", label: "C", shortDescription: "The mother of all programming languages", color: "#00599C" },
-    { id: 102, name: "powerbi", label: "Power BI", shortDescription: "Business intelligence and data visualization", color: "#F2C811" },
-    { id: 103, name: "excel", label: "Excel", shortDescription: "Spreadsheet mastery for data analysis", color: "#217346" }
+    { id: 100, name: "sql", label: "SQL", shortDescription: "Structured Query Language for databases", color: "#336791", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    { id: 101, name: "c", label: "C", shortDescription: "The mother of all programming languages", color: "#00599C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+    { id: 102, name: "powerbi", label: "Power BI", shortDescription: "Business intelligence and data visualization", color: "#F2C811", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Power_bi_logo_black.svg/1200px-Power_bi_logo_black.svg.png" },
+    { id: 103, name: "excel", label: "Excel", shortDescription: "Spreadsheet mastery for data analysis", color: "#217346", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/1200px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" }
   ];
 
   const filteredSkills = Object.values(SKILLS).filter(skill => allowedSkills.includes(skill.name));
@@ -112,7 +113,7 @@ const convertSkillsToTimeline = () => {
 
   return allSkills.map((skill, index) => {
     // Determine status based on skill proficiency
-    const expertSkills = ["react", "git", "python"];
+    const expertSkills = ["react", "git", "python", "ts"];
     const intermediateSkills = ["postgres", "firebase", "supabase", "sql", "c", "powerbi", "excel"];
     
     let status: "completed" | "in-progress" | "pending";
@@ -146,6 +147,7 @@ const convertSkillsToTimeline = () => {
       content: skill.shortDescription,
       category: getSkillCategory(skill.name),
       icon: skillIconMap[skill.name] || Code,
+      iconUrl: skill.icon || undefined, // Use original skill icon URL
       relatedIds: relatedIds.slice(0, 3), // Limit to 3 related skills
       status,
       energy,
@@ -166,6 +168,7 @@ const getSkillCategory = (skillName: string): string => {
   const testing = ["selenium"];
   const ai = ["openai"];
   const analytics = ["powerbi", "excel"];
+  const animation = ["word_pullup_animation"];
 
   if (frontend.includes(skillName)) return "Frontend";
   if (backend.includes(skillName)) return "Backend";
@@ -178,6 +181,7 @@ const getSkillCategory = (skillName: string): string => {
   if (testing.includes(skillName)) return "Testing";
   if (ai.includes(skillName)) return "AI/ML";
   if (analytics.includes(skillName)) return "Analytics";
+  if (animation.includes(skillName)) return "Animation";
   
   return "Other";
 };

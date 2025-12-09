@@ -37,19 +37,32 @@ export const usePreloader = () => {
   return context;
 };
 const LOADING_TIME = 2.5;
+const MIN_LOADING_TIME = 1.5; // Minimum time to show greeting
 function Preloader({ children, disabled = false }: PreloaderProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingPercent, setLoadingPercent] = useState(0);
   const loadingTween = useRef<gsap.core.Tween>();
+  const startTimeRef = useRef<number>(Date.now());
 
   const bypassLoading = () => {
-    loadingTween.current?.progress(0.99).kill();
-    setLoadingPercent(100);
-    setIsLoading(false);
-    // console.log("killed", loadingTween.current);
+    const elapsed = Date.now() - startTimeRef.current;
+    const remaining = Math.max(0, MIN_LOADING_TIME - elapsed);
+    
+    if (remaining > 0) {
+      setTimeout(() => {
+        loadingTween.current?.progress(0.99).kill();
+        setLoadingPercent(100);
+        setIsLoading(false);
+      }, remaining);
+    } else {
+      loadingTween.current?.progress(0.99).kill();
+      setLoadingPercent(100);
+      setIsLoading(false);
+    }
   };
   const loadingPercentRef = useRef<{ value: number }>({ value: 0 });
   useEffect(() => {
+    startTimeRef.current = Date.now();
     loadingTween.current = gsap.to(loadingPercentRef.current, {
       value: 100,
       duration: LOADING_TIME,

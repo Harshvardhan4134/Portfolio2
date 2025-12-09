@@ -7,8 +7,8 @@ const links: Link[] = [
     thumbnail: '/assets/nav-link-previews/landing.png'
   },
   {
-    title: 'About',
-    href: '/#about',
+    title: 'Experience',
+    href: '/#experience',
     thumbnail: '/assets/nav-link-previews/about.png'
   },
   {

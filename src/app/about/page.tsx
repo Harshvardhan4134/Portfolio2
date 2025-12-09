@@ -26,11 +26,12 @@ import {
 import { Calendar, Briefcase, GraduationCap, Music, Heart, Code2, Database, Brain } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { FloatingConsultButton } from "@/components/ui/floating-consult-button";
 
 const QUICK_FACTS = [
   { icon: <FaMapMarkerAlt className="text-orange-600" />, label: "Location", value: "Visakhapatnam, India" },
-  { icon: <FaEnvelope className="text-orange-600" />, label: "Email", value: "abhijitzende75@gmail.com", href: "mailto:abhijitzende75@gmail.com" },
-  { icon: <FaLinkedin className="text-orange-600" />, label: "LinkedIn", value: "/zende-abhijit", href: "https://www.linkedin.com/in/zende-abhijit/" },
+  { icon: <FaEnvelope className="text-orange-600" />, label: "Email", value: "gharsha238@gmail.com", href: "mailto:gharsha238@gmail.com" },
+  { icon: <FaLinkedin className="text-orange-600" />, label: "LinkedIn", value: "/harshvardhan-gedela", href: "https://www.linkedin.com/in/harshvardhan-gedela/" },
   { icon: <GraduationCap className="text-orange-600" />, label: "Education", value: "B.Tech - Computer Science" },
 ];
 
@@ -75,30 +76,47 @@ const TECH_STACK = [
   { name: "Git", icon: <FaGit size={32} />, color: "#F05032" },
 ];
 
-const EXPERIENCE = [
+const PROFESSIONAL_EXPERIENCE = [
   {
-    title: "AI Dockerfile Optimizer",
-    role: "DevOps & AI Engineer",
-    description: "Built an AI-powered tool to optimize Docker containers, reducing image sizes and improving performance",
-    tech: ["Docker", "Python", "AI/ML", "DevOps"]
+    company: "Lendlly",
+    role: "Freelance (Client)",
+    period: "Present",
+    description: "Built using Rork AI + Cursor + Google Maps + Supabase",
+    achievements: [
+      "Designed a mobile-first rental/swapping marketplace like OYO/Ola",
+      "Defined project scope with client and delivered mobile-first rental marketplace within agreed timelines",
+      "Managed end-to-end execution: requirements gathering, UI/UX design, workflow automation, and stakeholder updates",
+      "Created swipeable UI with map pins, in-app calendar logic, and verified user workflows",
+      "Built Lendlly website using Lovable, Replit, and Supabase",
+      "Produced a final deliverable (live website + app) with reporting on usage flows and future roadmap recommendations"
+    ],
+    tech: ["Rork AI", "Cursor", "Google Maps", "Supabase", "Lovable", "Replit"]
   },
   {
-    title: "Finance Me - Financial Platform",
-    role: "Full-Stack Developer",
-    description: "Developed a comprehensive financial management platform with real-time data processing",
-    tech: ["React", "Node.js", "PostgreSQL", "AWS"]
+    company: "Stuvalley Technology",
+    role: "Data Analytics Internship",
+    period: "May 2024 – Jun 2024",
+    description: "Data processing and analytics internship focusing on Excel automation and data visualization",
+    achievements: [
+      "Developed and automated data processing tasks using advanced Excel (VBA, Pivot Tables, Macros), enhancing data clarity through visualizations",
+      "Collaborated with cross-functional teams to solve real-world data challenges, delivering actionable insights",
+      "Cleaned and normalized datasets from diverse sources, ensuring consistency and reliability for downstream analysis",
+      "Presented findings through dashboards, emphasizing trends and anomalies for stakeholders"
+    ],
+    tech: ["Excel", "VBA", "Pivot Tables", "Macros", "Data Visualization", "Analytics"]
   },
   {
-    title: "Smart Job Tracker",
-    role: "Full-Stack Developer",
-    description: "Created a job application tracking system with automated workflows and analytics",
-    tech: ["TypeScript", "React", "MongoDB", "Node.js"]
-  },
-  {
-    title: "Smart Parking Assistant",
-    role: "IoT & Backend Developer",
-    description: "Designed an IoT-based parking management system with real-time availability tracking",
-    tech: ["IoT", "Python", "PostgreSQL", "Cloud"]
+    company: "Bharat Heavy Electricals Limited (BHEL)",
+    role: "Intern",
+    period: "Jun 2024 – Jul 2024",
+    description: "Industrial internship focusing on manufacturing operations and workflow management",
+    achievements: [
+      "Gained exposure to large-scale manufacturing operations and observed the functioning of heavy machinery and production units",
+      "Understood workflow and coordination processes across departments in a live industrial environment",
+      "Assisted in basic communication tasks to support smooth information flow between teams and supervisors",
+      "Developed a foundational understanding of shop floor management and safety protocols"
+    ],
+    tech: ["Manufacturing Operations", "Workflow Management", "Industrial Processes", "Safety Protocols"]
   }
 ];
 
@@ -212,20 +230,37 @@ export default function AboutPage() {
         {/* Professional Experience */}
         <section className="mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white" style={{ fontFamily: 'Caveat, cursive' }}>
-            What I&apos;ve Built
+            Professional Experience
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {EXPERIENCE.map((exp, index) => (
+          <div className="space-y-8">
+            {PROFESSIONAL_EXPERIENCE.map((exp, index) => (
               <div 
                 key={index} 
                 className="p-6 bg-gray-900/50 rounded-lg border border-gray-800 hover:border-orange-600 transition-all"
               >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white">{exp.title}</h3>
-                  <Briefcase className="text-orange-600" size={20} />
-            </div>
-                <p className="text-sm text-orange-600 mb-3">{exp.role}</p>
-                <p className="text-gray-400 mb-4">{exp.description}</p>
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1">{exp.company}</h3>
+                    <p className="text-orange-600 font-semibold">{exp.role}</p>
+                    <p className="text-sm text-gray-400">{exp.period}</p>
+                  </div>
+                  <Briefcase className="text-orange-600" size={24} />
+                </div>
+                
+                <p className="text-gray-300 mb-4 italic">{exp.description}</p>
+                
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-white mb-2">Key Achievements:</h4>
+                  <ul className="space-y-1">
+                    {exp.achievements.map((achievement, idx) => (
+                      <li key={idx} className="text-sm text-gray-400 flex items-start">
+                        <span className="text-orange-600 mr-2 mt-1">•</span>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
                 <div className="flex flex-wrap gap-2">
                   {exp.tech.map((tech, idx) => (
                     <span 
@@ -235,8 +270,8 @@ export default function AboutPage() {
                       {tech}
                     </span>
                   ))}
-                        </div>
-                      </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
@@ -290,38 +325,31 @@ export default function AboutPage() {
 
         <Separator className="my-12 bg-gray-800" />
 
-        {/* Call to Action */}
-        <section className="text-center py-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white" style={{ fontFamily: 'Caveat, cursive' }}>
-            Let&apos;s Build Something Amazing Together!
-          </h2>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            I&apos;m always open to collaborating on interesting projects, freelance opportunities, 
-            or just having a chat about tech, music, or anything in between.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Link 
-              href="/contact"
-              className="px-8 py-3 bg-orange-600 text-white rounded-lg font-semibold hover:bg-orange-700 transition-colors"
-            >
-              Get In Touch
-            </Link>
-            <Link 
-              href={config.social.linkedin}
-              target="_blank"
-              className="px-8 py-3 bg-gray-800 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors border border-gray-700"
-            >
-              Connect on LinkedIn
-            </Link>
-          </div>
-        </section>
-
       </div>
 
       {/* Add Google Font for handwritten style */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
       `}</style>
+      
+      {/* Floating Consult Button */}
+      <FloatingConsultButton
+        buttonSize={180}
+        imageSize={110}
+        imageSrc="/assets/me2.jpg"
+        imageAlt="Harshvardhan Gedela - Portfolio Consultant"
+        revolvingText="LET'S TALK - FREE CONSULT - GET IN TOUCH - "
+        revolvingSpeed={12}
+        popupHeading="Schedule a Call"
+        popupDescription="Ready to discuss your next project? Let's have a free 30-minute consultation to explore how we can work together to bring your ideas to life."
+        popupBadgeText="Free"
+        ctaButtonText="Book a Call"
+        ctaButtonAction={() => {
+          // You can replace this with your actual booking link
+          window.open('mailto:gharsha238@gmail.com?subject=Portfolio Consultation Request', '_blank');
+        }}
+        position={{ bottom: "2rem", right: "2rem" }}
+      />
     </div>
   );
 }

@@ -14,53 +14,68 @@ import Link from "next/link";
 import SmoothScroll from "../smooth-scroll";
 import projects, { Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import { ElitePlanCard } from "@/components/ui/elite-plan-card";
+import ProjectCard from "@/components/ui/project-card";
+import { FollowerPointerCard } from "@/components/ui/following-pointer";
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="max-w-7xl mx-auto md:h-[130vh] px-4 sm:px-6 md:px-8">
-      <Link href={"#projects"}>
-        <h2
-          className={cn(
-            "bg-clip-text text-3xl sm:text-4xl text-center text-transparent md:text-6xl lg:text-7xl pt-12 sm:pt-16",
-            "bg-gradient-to-b from-black/80 to-black/50",
-            "dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50 mb-16 sm:mb-24 md:mb-32"
-          )}
-        >
-          Projects
-        </h2>
-      </Link>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {projects.map((project, index) => (
-          <Modall key={project.src} project={project} />
-        ))}
+    <section
+      id="projects"
+      className="px-4 sm:px-6 md:px-8 py-16 sm:py-20"
+    >
+      <div className="max-w-6xl mx-auto">
+        <Link href={"#projects"}>
+          <h2
+            className={cn(
+              "text-3xl sm:text-4xl text-center md:text-6xl lg:text-7xl",
+              "text-black dark:text-white mb-4"
+            )}
+          >
+            Projects
+          </h2>
+        </Link>
+        <p className="text-center text-sm sm:text-base text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto mb-10 sm:mb-14">
+          A curated mix of analytics, product, and platform builds—each shipped with measurable outcomes, clean handoff,
+          and motion-polished UI.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-10 text-xs uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+          <span className="rounded-full border border-white/15 bg-white/50 dark:bg-white/5 backdrop-blur px-3 py-1">
+            Analytics
+          </span>
+          <span className="rounded-full border border-white/15 bg-white/50 dark:bg-white/5 backdrop-blur px-3 py-1">
+            Product Systems
+          </span>
+          <span className="rounded-full border border-white/15 bg-white/50 dark:bg-white/5 backdrop-blur px-3 py-1">
+            Full Stack
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {projects.map((project) => (
+            <Modall key={project.src} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 const Modall = ({ project }: { project: Project }) => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-stretch justify-center">
       <Modal>
-        <ModalTrigger className="bg-transparent flex justify-center group/modal-btn w-full">
-          <div
-            className="relative w-full max-w-[400px] h-auto rounded-lg overflow-hidden"
-            style={{ aspectRatio: "3/2" }}
-          >
-            <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
-              src={project.src}
-              alt={project.title}
-              width={300}
-              height={300}
-            />
-            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none">
-              <div className="flex flex-col h-full items-start justify-end p-4 sm:p-6">
-                <div className="text-base sm:text-lg text-left">{project.title}</div>
-                <div className="text-xs bg-white text-black rounded-lg w-fit px-2">
-                  {project.category}
-                </div>
-              </div>
-            </div>
+        <ModalTrigger className="bg-transparent flex justify-center group/modal-btn w-full h-full">
+          <div className="w-full h-full max-w-[520px]">
+            <FollowerPointerCard title={project.title}>
+              <ProjectCard
+                imageUrl={project.src}
+                title={project.title}
+                subtitle={project.category}
+                summary={(project as any).summary}
+                className="bg-gradient-to-b from-white/80 via-white/70 to-white/60 dark:from-white/10 dark:via-white/5 dark:to-white/[0.04] border-white/30 shadow-[0_25px_80px_-40px_rgba(0,0,0,0.55)]"
+              />
+            </FollowerPointerCard>
           </div>
         </ModalTrigger>
         <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto">
@@ -69,12 +84,12 @@ const Modall = ({ project }: { project: Project }) => {
               <ProjectContents project={project} />
             </ModalContent>
           </SmoothScroll>
-          <ModalFooter className="gap-4">
-            <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-              Cancel
+          <ModalFooter className="gap-3 sm:gap-4">
+            <button className="px-3 py-2 bg-white text-black dark:bg-white/10 dark:text-white border border-black/10 dark:border-white/10 rounded-md text-sm w-28 shadow-sm hover:-translate-y-0.5 transition">
+              Close
             </button>
             <Link href={project.live} target="_blank">
-              <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+              <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-3 py-2 rounded-md border border-black dark:border-white w-28 shadow-sm hover:-translate-y-0.5 transition">
                 Visit
               </button>
             </Link>

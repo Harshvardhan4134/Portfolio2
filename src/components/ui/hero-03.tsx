@@ -65,7 +65,7 @@ function HyperText({ text }: { text: string }) {
 
 export function HeroSection03() {
   return (
-    <div className="min-h-screen relative bg-black text-white overflow-hidden w-full">
+    <div className="min-h-screen relative bg-black text-white overflow-hidden w-full" style={{ visibility: 'visible', opacity: 1 }}>
       <header className="flex justify-between items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 relative z-10">
         <div className="text-xl sm:text-2xl font-bold italic text-white">Harsh</div>
       </header>

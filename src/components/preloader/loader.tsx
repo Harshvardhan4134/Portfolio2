@@ -39,7 +39,7 @@ export default function Index() {
       () => {
         setIndex(index + 1);
       },
-      index == 0 ? 1000 : 250
+      index == 0 ? 800 : 200
     );
   }, [index]);
 
@@ -75,8 +75,13 @@ export default function Index() {
         initial="initial" 
         animate="enter"
         className={`${styles.greeting} ${handlee.className}`}
+        style={{ 
+          opacity: 1,
+          visibility: 'visible',
+          display: 'block'
+        }}
       >
-        {greetings[index]}
+        {greetings[index] || greetings[0]}
       </motion.p>
     </motion.div>
   );

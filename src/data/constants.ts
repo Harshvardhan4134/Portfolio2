@@ -43,6 +43,7 @@ export enum SkillNames {
   REDIS = "redis",
   SUPABASE = "supabase",
   OPENAI = "openai",
+  WORD_PULLUP_ANIMATION = "word_pullup_animation",
 }
 export type Skill = {
   id: number;
@@ -403,6 +404,14 @@ using use = useUsing("use")`,
     shortDescription: "AI that's actually smart, no cap! 🤖🧠",
     color: "#412991",
     icon: "/assets/icons/openai-svgrepo-com.svg",
+  },
+  [SkillNames.WORD_PULLUP_ANIMATION]: {
+    id: 44,
+    name: "word_pullup_animation",
+    label: "Word pull-up animation",
+    shortDescription: "Making text animations that hit different! 📝✨",
+    color: "#ff6b6b",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
 };
 
