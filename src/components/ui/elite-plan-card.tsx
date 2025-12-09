@@ -30,6 +30,17 @@ export const ElitePlanCard = React.forwardRef<HTMLDivElement, ElitePlanCardProps
     },
     ref
   ) => {
+    // Filter out conflicting HTML event handlers that conflict with framer-motion
+    const {
+      onDrag,
+      onDragEnd,
+      onDragStart,
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
+      ...safeProps
+    } = props as any;
+
     return (
       <motion.div
         ref={ref}
@@ -39,7 +50,7 @@ export const ElitePlanCard = React.forwardRef<HTMLDivElement, ElitePlanCardProps
           "relative w-full max-w-sm overflow-hidden rounded-3xl hover:shadow-xl bg-black",
           className
         )}
-        {...props}
+        {...safeProps}
       >
         {/* Top image with parallax */}
         <motion.div

@@ -829,7 +829,7 @@ const projects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono ">
-            Developed a comprehensive data analysis project using Jupyter Notebook and SQL to analyze Walmart's sales data. 
+            Developed a comprehensive data analysis project using Jupyter Notebook and SQL to analyze Walmart&apos;s sales data. 
             Implemented data processing and analysis techniques to gain key business insights. 
             Extracted data from various sources, cleaned and transformed it, and performed detailed analysis 
             to understand sales patterns and trends.

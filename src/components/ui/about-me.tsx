@@ -2,7 +2,7 @@ export function AboutMe() {
   return (
     <div className="space-y-2 p-8 max-w-3xl">
       <div className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
-        Hey there! I'm <span className="font-bold text-black dark:text-white">Harshvardhan</span>, a Mechanical Engineering student from{" "}
+        Hey there! I&apos;m <span className="font-bold text-black dark:text-white">Harshvardhan</span>, a Mechanical Engineering student from{" "}
         <span className="group relative inline font-bold text-violet-600 hover:text-violet-500 transition-all duration-300 cursor-pointer hover:scale-110 hover:drop-shadow-lg">
           Vizag
           <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 z-10">
@@ -28,7 +28,7 @@ export function AboutMe() {
       </div>
 
       <div className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
-        If you don't find me developing, I'll be{" "}
+        If you don&apos;t find me developing, I&apos;ll be{" "}
         <span className="group relative inline font-bold text-violet-600 hover:text-violet-500 transition-all duration-300 cursor-pointer hover:scale-110 hover:drop-shadow-lg">
           killing bots
           <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 z-10">
@@ -68,7 +68,7 @@ export function AboutMe() {
       </div>
 
       <div className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
-        If you're into technology, innovation, or just good conversations, let's connect! ☕
+        If you&apos;re into technology, innovation, or just good conversations, let&apos;s connect! ☕
       </div>
     </div>
   );

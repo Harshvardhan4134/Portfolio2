@@ -20,6 +20,17 @@ const Tag = ({ children }: { children: React.ReactNode }) => (
 
 export const ProjectCard = React.forwardRef<HTMLDivElement, ProjectCardProps>(
   ({ imageUrl, title, subtitle, summary, className, ...props }, ref) => {
+    // Filter out conflicting HTML event handlers that conflict with framer-motion
+    const {
+      onDrag,
+      onDragEnd,
+      onDragStart,
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
+      ...safeProps
+    } = props as any;
+
     return (
       <motion.div
         ref={ref}
@@ -29,7 +40,7 @@ export const ProjectCard = React.forwardRef<HTMLDivElement, ProjectCardProps>(
           "relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100",
           className
         )}
-        {...props}
+        {...safeProps}
       >
         <div className="w-full aspect-[16/10] bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden relative">
           <motion.img

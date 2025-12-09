@@ -100,7 +100,7 @@ const TIMELINE_DATA = [
                   ✅ Developed problem-solving mindset through practical, hands-on learning
                 </div>
                 <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-                  ✅ Explored technology's real-world impact by building full-stack projects
+                  ✅ Explored technology&apos;s real-world impact by building full-stack projects
                 </div>
                 <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
                   ✅ Created startup concepts and innovative solutions during college
